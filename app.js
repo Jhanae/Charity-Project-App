@@ -8,6 +8,7 @@
 function init() {
     // getData(0, "").then(data => data.organizations.forEach(renderCharityLi))
     searchEventButton()
+    getComments()
     
  }
  document.querySelector('div#orgDetails img').className = 'image'
@@ -127,4 +128,17 @@ function init() {
           document.querySelector('.charityType').src = 'type6Performing arts.jpg'
           break;
    }
+ }
+
+ function getComments (){
+    document.querySelector('form.comments').addEventListener('submit', (e) => {
+       e.preventDefault()
+
+       let userComment = document.querySelector('.input').value
+       console.log(userComment)
+
+       let li = document.createElement('li')
+       li.innerHTML = userComment
+       ul.append(li)
+    })
  }
